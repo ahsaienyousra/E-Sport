@@ -11,7 +11,7 @@ export const Team =({setNoPagination,match}) => {
     useEffect(()=>{
         id = match.params.id;
         const callAPI = async ()=>{
-            const res = await axios.get(`https://api.pandascore.co/teams/${id}?token=${TOKEN_API}`);
+            const res = await axios.get(`/api/teams/${id}?token=${TOKEN_API}`);
             setTeam(res.data);
         }
         callAPI()

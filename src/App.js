@@ -36,7 +36,7 @@ const App = () => {
 
   useEffect(() => {
     const callAPI = async () => {
-      const res = await axios.get(`https://api.pandascore.co/videogames?token=${TOKEN_API}`);
+      const res = await axios.get(`/api/videogames?token=${TOKEN_API}`);
       console.log(res.data);
       setGames([{ name: "All Games", id: 0 }, ...res.data]);
     };
@@ -63,7 +63,7 @@ const App = () => {
 
   useEffect(() => {
     const callAPI = async () => {
-      const res = await axios.get(`https://api.pandascore.co/teams?page[size]=100&token=${TOKEN_API}`);
+      const res = await axios.get(`/api/teams?page[size]=100&token=${TOKEN_API}`);
       let total = res.headers["x-total"];
       setPageNumber(Math.ceil(total / TEAMS_PER_PAGE));
       console.log(res.data)
@@ -81,7 +81,7 @@ const App = () => {
   useEffect(() => {
     const callAPI = async () => {
       if (leaguePage) {
-        const res = await axios.get(`https://api.pandascore.co/videogames/${selectedGame.id}/leagues?page[size]=${LEAGUES_PER_PAGE}&page[number]=${filteredPage}&token=${TOKEN_API}`);
+        const res = await axios.get(`/api/videogames/${selectedGame.id}/leagues?page[size]=${LEAGUES_PER_PAGE}&page[number]=${filteredPage}&token=${TOKEN_API}`);
         console.log("data d game");
         console.log(res.data);
         setLeagues(res.data);

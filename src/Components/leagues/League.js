@@ -11,7 +11,7 @@ const League =(props) => {
     useEffect(()=>{
         id = props.match.params.id;
         const callAPI = async ()=>{
-            const res = await axios.get(`https://api.pandascore.co/leagues/${id}?token=${TOKEN_API}`);
+            const res = await axios.get(`/api/leagues/${id}?token=${TOKEN_API}`);
             setLeague(res.data);
         }
         callAPI()
