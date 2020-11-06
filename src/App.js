@@ -11,6 +11,8 @@ import { Teams } from "./Components/teams/Teams";
 import { TeamItem } from "./Components/teams/TeamItem";
 import { Team } from "./Components/teams/Team";
 import { NotFound } from './Components/layout/NotFound'
+
+
 const App = () => {
   const [leagues, setLeagues] = useState([]);
 
@@ -46,8 +48,8 @@ const App = () => {
     console.log("team page: " + teamPage);
     const callAPI = async () => {
       // setLea({...state,loading:true});
-      const res = await axios.get(`https://api.pandascore.co/leagues?page[size]=${LEAGUES_PER_PAGE}&page[number]=${leaguePage}&token=${TOKEN_API}`);
-
+      const res = await axios.get(`/api/leagues?page[size]=${LEAGUES_PER_PAGE}&page[number]=${leaguePage}&token=${TOKEN_API}`);
+      console.log(res.data)
       let total = res.headers["x-total"];
       console.log(total);
       setPageNumber(Math.ceil(total / LEAGUES_PER_PAGE));
