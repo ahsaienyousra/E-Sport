@@ -7,8 +7,8 @@ const Leagues = ({leagues, loading,setTeamPage})=>{
             setTeamPage(0)
         },[])
         return (
-            <div>
-                <h1>Leagues</h1>
+            <div className="text-center">
+                <h1 className="p-4">Leagues</h1>
                 {leagues && leagues.map(league =>(
                     <LeagueItem key={league.id} league={league} />
                 ))}
