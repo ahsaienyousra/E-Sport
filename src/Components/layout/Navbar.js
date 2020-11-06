@@ -5,20 +5,20 @@ import React, { Component, useEffect } from "react";
 const Navbar = ({ games, setSelectedGame, setShowAll,selectedGame }) => {
 
   const handleClick = (e)=>{
-    console.log(e.target)
+
     let data = e.target.value.split(",")
-    console.log(data)
+
     if(data[0] != 0){
       setSelectedGame({name:data[1],id:data[0]})
     }
     else{
-      console.log("setting showAll to true")
+
       setShowAll(true)
     }
   }
 
   useEffect(()=>{
-    console.log(games)
+
   },[games])
 
   const handleShowAll = () =>{

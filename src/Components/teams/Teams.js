@@ -4,7 +4,7 @@ import { TeamItem } from './TeamItem'
 export const Teams = ({teams,setTeamPage,setLeaguePage}) => {
 
     useEffect(()=>{
-        console.log("hana");
+
         setTimeout(()=>{
             setTeamPage(1)
         },200)
@@ -12,7 +12,7 @@ export const Teams = ({teams,setTeamPage,setLeaguePage}) => {
     },[])
 
     useEffect(()=>{
-        console.log(teams)
+
     },[teams])
 
     return (

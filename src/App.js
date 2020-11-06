@@ -37,21 +37,20 @@ const App = () => {
   useEffect(() => {
     const callAPI = async () => {
       const res = await axios.get(`/api/videogames?token=${TOKEN_API}`);
-      console.log(res.data);
+
       setGames([{ name: "All Games", id: 0 }, ...res.data]);
     };
     callAPI();
   }, []);
 
   useEffect(() => {
-    console.log("leagues page: " + leaguePage);
-    console.log("team page: " + teamPage);
+
     const callAPI = async () => {
       // setLea({...state,loading:true});
       const res = await axios.get(`/api/leagues?page[size]=${LEAGUES_PER_PAGE}&page[number]=${leaguePage}&token=${TOKEN_API}`);
-      console.log(res.data)
+
       let total = res.headers["x-total"];
-      console.log(total);
+
       setPageNumber(Math.ceil(total / LEAGUES_PER_PAGE));
       setLeagues(res.data);
     };
@@ -66,13 +65,12 @@ const App = () => {
       const res = await axios.get(`/api/teams?page[size]=100&token=${TOKEN_API}`);
       let total = res.headers["x-total"];
       setPageNumber(Math.ceil(total / TEAMS_PER_PAGE));
-      console.log(res.data)
-      console.log(res.data.slice(TEAMS_PER_PAGE * (teamPage - 1), TEAMS_PER_PAGE * teamPage))
+
       setTeams(res.data)
       setWorkingTeams(res.data.slice(TEAMS_PER_PAGE * (teamPage - 1), TEAMS_PER_PAGE * teamPage));
     };
     if (teamPage && showAll){
-      console.log("showing all...")
+
       callAPI(); 
       // setWorkingTeams(teams)
     } 
@@ -82,29 +80,27 @@ const App = () => {
     const callAPI = async () => {
       if (leaguePage) {
         const res = await axios.get(`/api/videogames/${selectedGame.id}/leagues?page[size]=${LEAGUES_PER_PAGE}&page[number]=${filteredPage}&token=${TOKEN_API}`);
-        console.log("data d game");
-        console.log(res.data);
+
         setLeagues(res.data);
         // setPageNumber(Math.ceil(res.data.length/LEAGUES_PER_PAGE))
         setPageNumber(Math.ceil(res.headers["x-total"] / LEAGUES_PER_PAGE));
         setShowAll(false);
       } else {
 
-        console.log(teams)
+
         let sliced = (teams
           .filter((team) => team.current_videogame.name === selectedGame.name)
           .slice(TEAMS_PER_PAGE * (filteredPage - 1), TEAMS_PER_PAGE * filteredPage));
         
-        console.log(teamPage)
-        console.log(sliced)
+
         setWorkingTeams(sliced)
-        console.log(Math.ceil(teams.reduce((a,team)=>team.current_videogame.name===selectedGame.name?a+1:a,0)/TEAMS_PER_PAGE));
+
         setPageNumber(Math.ceil(teams.reduce((a,team)=>team.current_videogame.name===selectedGame.name?a+1:a,0)/TEAMS_PER_PAGE))
         setShowAll(false);
       }
     };
     if (selectedGame && selectedGame.id != 0) {
-      console.log("Calling game API");
+
       callAPI();
       setShowAll(false);
     }
@@ -115,11 +111,11 @@ const App = () => {
   }, [selectedGame]);
 
   useEffect(() => {
-    console.log(showAll);
+
   }, [showAll]);
 
   useEffect(() => {
-    console.log(noPagination);
+
   }, [noPagination]);
 
   //filtrage

@@ -4,7 +4,6 @@ export const NotFound = ({setNoPagination}) => {
     useEffect(()=>{
         if(setNoPagination){
             setNoPagination(true)
-            console.log("hahna akhay tabi3aa");
         }
     },[setNoPagination])
     return (
