@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 
 const LeagueItem = ({league:{id,name,image_url,html_url}})=> {
         return (
-            <div className="container-fluid text-center">
-            <div className="card"style={{width:'50%'}} >
+            <div className="container-fluid" style="width: 50%;">
+            <div className="card mb-5">
                 <h3 className="card-header" style={{ backgroundColor: "white"}}>{name}</h3>
                 <div class="card-body">
                 <img src={image_url ||"https://hearhear.org/wp-content/uploads/2019/09/no-image-icon.png"} alt='' style={{width:'50%'}}/>
