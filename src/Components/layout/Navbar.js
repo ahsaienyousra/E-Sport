@@ -29,18 +29,8 @@ const Navbar = ({ games, setSelectedGame, setShowAll,selectedGame }) => {
     <nav className="navbar  white" style={{ backgroundColor: "#3f51b5", color: "white" }}>
       <h1 className="navbar-brand">A-Sport Démo UBO</h1>
       <ul className="nav justify-content-end text-light">
-        <li className="nav-item dropdown">
-          {/* <div className="dropdown">
-            <a  className="nav-link text-light dropdown-toggle" onClick={handleShowAll}   id="navbardrop" data-toggle="dropdown">
-              Choose Game
-            </a>
-            <div className="dropdown-menu">{games && games.map((game) =>
-             <button  onClick = {handleClick} className="dropdown-item">{game.name}</button>
-             )}</div>
-          </div> */}
-
+        <li className="nav-item dropdown mr-5">
           <select onChange={handleClick} style={{backgroundColor:"transparent",color:'white'}} class="custom-select">
-            {/* <option selected value="All Games">All Games</option> */}
             {games && games.map((game)=>{
               let selected = selectedGame.name === game.name?true:false
               return (<option style={{color:"black"}} selected={selected}  value={game.id+","+game.name}>{game.name}</option>)

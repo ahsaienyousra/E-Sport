@@ -7,17 +7,14 @@ const Leagues = ({leagues, loading,setTeamPage})=>{
             setTeamPage(0)
         },[])
         return (
-            <div style={leagueStyle}>
+            <div>
+                <h1>Leagues</h1>
                 {leagues && leagues.map(league =>(
                     <LeagueItem key={league.id} league={league} />
                 ))}
             </div>
         );
 }
-const leagueStyle={
-    display:'grid',
-    gridTemplateColumns:'repeat(1,1fr)',
-    gridGap:'2rem'
-}
+
 
 export default Leagues;
