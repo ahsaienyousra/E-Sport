@@ -18,18 +18,24 @@ const League =(props) => {
     },[])
 
     useEffect(()=>{
-        if(props.setPage){
+        if(props.setNoPagination){
             props.setNoPagination(true)
         }
-    },[props.setPage])
+    },[props.setNoPagination])
+
+    
 
 
-        const {name, image_url}= league;
+        const {name, image_url,videogame}= league;
         return (
-            <div className="container mb-5">
-                {name}
+            <div className="container-fluid text-center mb-5 mt-4 " style={{width: "50%"}}>
+                
                 <img className="img-fluid" style={{maxHeight:600}} 
-                src={image_url || "https://hearhear.org/wp-content/uploads/2019/09/no-image-icon.png"} alt='' />
+                src={image_url || "https://intercoton.org/wp-content/themes/consultix/images/no-image-found-360x260.png"} alt='' />
+                <h2 className="p-4">{name}</h2>
+                {videogame && (
+                            <h5>Game: {videogame.name}</h5>
+                        )}
                 <hr></hr>
                 {league.series &&  league.series.map((serie,index)=>{
                     return(

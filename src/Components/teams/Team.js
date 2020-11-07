@@ -27,10 +27,10 @@ export const Team =({setNoPagination,match}) => {
         return (
             <div>
                 {team && (
-                    <div className="container mb-5">
+                    <div className="container-fluid text-center mb-5 mt-5 " style={{width: "50%"}}>
                     <div className=" text-center">
                         <img className="img-fluid" style={{maxHeight:600}} 
-                        src={team.image || "https://hearhear.org/wp-content/uploads/2019/09/no-image-icon.png"} alt='' />
+                        src={team.image || "https://intercoton.org/wp-content/themes/consultix/images/no-image-found-360x260.png"} alt='' />
                         <h3>{team.name}</h3>
                         {team.current_videogame && (
                             <h5>Game: {team.current_videogame.name}</h5>

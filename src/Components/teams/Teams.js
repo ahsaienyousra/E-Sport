@@ -15,7 +15,8 @@ export const Teams = ({teams,setTeamPage,setLeaguePage}) => {
     },[teams])
 
     return (
-        <div className="container">
+        <div className="text-center">
+            <h1 className="p-4">Teams</h1>
             {teams && teams.map(team=>(
                 <TeamItem name={team.name} image={team.image_url} id={team.id} />
             ))}

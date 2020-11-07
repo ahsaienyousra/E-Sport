@@ -148,7 +148,7 @@ const App = () => {
               <Redirect to="/leagues" />
             </Route>
             <Route exact path="/leagues" render={(props) => <Leagues loading={loading} leagues={leagues} setTeamPage={setTeamPage} />} />
-            <Route exact path="/leagues/:id" render={(props) => <League {...props} setNoPagination={setNoPagination} />} />
+            <Route exact path="/leagues/:id" render={(props)=>{ return <League {...props} setNoPagination={setNoPagination}/>;}}></Route>
             <Route exact path="/teams">
               <Teams teams={workingTeams} setTeamPage={setTeamPage} setLeaguePage={setLeaguePage} />
             </Route>

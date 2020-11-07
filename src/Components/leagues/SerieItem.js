@@ -13,7 +13,7 @@ export const SerieItem = ({fullName,beginAt,endAt,winnerId}) => {
                     <h5 className="card-title">From: {moment(beginAt).format("DD/MM/YYYY hh:mm:ss")}
                      {endAt && "  To: "+moment(endAt).format("DD/MM/YYYY hh:mm:ss")}</h5>
                     {winnerId && (
-                        <Link to={`/teams/${winnerId}`}  class="btn btn-warning">Go somewhere</Link>
+                        <Link to={`/teams/${winnerId}`}  class="btn btn-warning"> Vainqueur </Link>
                     )}
                     
                 </div>
