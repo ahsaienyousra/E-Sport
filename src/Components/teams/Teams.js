@@ -4,10 +4,9 @@ import { TeamItem } from './TeamItem'
 export const Teams = ({teams,setTeamPage,setLeaguePage}) => {
 
     useEffect(()=>{
-
         setTimeout(()=>{
             setTeamPage(1)
-        },200)
+        },300)
         setLeaguePage(0)
     },[])
 
